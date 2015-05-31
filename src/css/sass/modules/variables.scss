@@ -8,9 +8,16 @@
  * Typography
  */
 
+$bernino: "jaf-bernino-sans", Helvetica, Arial, "Open Sans", sans-serif;
+
 $font-family-base: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
 $font-size-base: 140%;
 $line-height-base: 1.5;
+
+$font-family-header: $bernino;
+$font-weight-header: 600;
+$font-family-base: $freight;
+$font-weight-base: 400;
 
 
 /**

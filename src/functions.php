@@ -102,6 +102,9 @@ function html5blank_header_scripts()
             // Modernizr
             wp_register_script('modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '2.8.3');
 
+            // Typekit
+            wp_register_script("typekit", "//use.typekit.net/bcn3zkj.js", array(), '1.0');
+
             // Custom scripts
             wp_register_script(
                 'html5blankscripts',
@@ -109,7 +112,9 @@ function html5blank_header_scripts()
                 array(
                     'conditionizr',
                     'modernizr',
-                    'jquery'),
+                    'jquery',
+                    "typekit"
+                  ),
                 '1.0.0');
 
             // Enqueue Scripts
@@ -388,6 +393,7 @@ add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
+add_action( 'wp_head', 'theme_typekit_inline' ); //Add Typekit Fonts
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
@@ -483,4 +489,14 @@ function html5_shortcode_demo($atts, $content = null)
 function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
 {
     return '<h2>' . $content . '</h2>';
+}
+
+/*------------------------------------*\
+   Typekit
+\*------------------------------------*/
+
+function theme_typekit_inline() {
+  if ( wp_script_is( 'theme_typekit', 'done' ) ) { ?>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<?php }
 }
