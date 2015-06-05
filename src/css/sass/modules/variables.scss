@@ -9,31 +9,45 @@
  */
 
 $bernino: "jaf-bernino-sans", Helvetica, Arial, "Open Sans", sans-serif;
+$freight: "freight-text-pro", serif;
+$adelle-sans: "adelle-sans", sans-serif;
 
 $font-family-base: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
-$font-size-base: 140%;
+$font-size-base: 2.2rem;
 $line-height-base: 1.5;
 
-$font-family-header: $bernino;
-$font-weight-header: 600;
+$font-family-header: $adelle-sans;
+$font-weight-header: 700;
 $font-family-base: $freight;
 $font-weight-base: 400;
+$font-family-meta: $adelle-sans;
+$letter-spacing-base: 0.01rem;
+$font-family-caption: $adelle-sans;
+$font-family-nav: $adelle-sans;
 
 
 /**
  * Colors
  */
+$light-gray: #E6EBFF;
+$medium-gray: #676A73;
+$dark-gray: #3D3F44;
+$white: #fff;
 
-$text-color: #444;
-$body-bg: #fff;
+$text-color: $dark-gray;
+$link-color: $medium-gray;
+$body-bg: $white;
 $selection-bg: #04A4CC;
 
+$color-secondary: $medium-gray;
 
 /**
  * Grid
  */
 
 $wrapper-width: 1280px;
+$header-height: 12.2rem;
+$header-height-compact: 6.7rem;
 
 
 $padding-horizontal-base: 5px;
@@ -42,3 +56,8 @@ $margin-horizontal-base: 5px;
 $margin-vertical-base: 5px;
 $margin-horizontal-large: 15px;
 $margin-vertical-large: 15px;
+
+
+$border-base: 1px solid $light-gray;
+$transition-base: all 0.1s cubic-bezier(.06,.42,.7,.99);
+$box-shadow-base: 0 0 3px 0 $light-gray;

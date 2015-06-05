@@ -27,9 +27,9 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
+    add_image_size('large', 1000, '', true); // Large Thumbnail
+    add_image_size('medium', 500, '', true); // Medium Thumbnail
+    add_image_size('small', 250, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
@@ -63,11 +63,35 @@ if (function_exists('add_theme_support'))
 \*------------------------------------*/
 
 // HTML5 Blank navigation
-function html5blank_nav()
+function header_left_nav()
 {
     wp_nav_menu(
     array(
-        'theme_location'  => 'header-menu',
+        'theme_location'  => 'header-menu-left',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'menu-{menu slug}-container',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul>%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+        )
+    );
+}
+
+function header_right_nav()
+{
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'header-menu-right',
         'menu'            => '',
         'container'       => 'div',
         'container_class' => 'menu-{menu slug}-container',
@@ -103,7 +127,7 @@ function html5blank_header_scripts()
             wp_register_script('modernizr', get_template_directory_uri() . '/bower_components/modernizr/modernizr.js', array(), '2.8.3');
 
             // Typekit
-            wp_register_script("typekit", "//use.typekit.net/bcn3zkj.js", array(), '1.0');
+            wp_register_script("typekit", "//use.typekit.net/zoi7fjr.js", array(), '1.0');
 
             // Custom scripts
             wp_register_script(
@@ -164,9 +188,9 @@ function html5blank_styles()
 function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
+        'header-menu-left' => __('Header Menu Left', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'header-menu-right' => __('Header Menu Right', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -496,7 +520,7 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 \*------------------------------------*/
 
 function theme_typekit_inline() {
-  if ( wp_script_is( 'theme_typekit', 'done' ) ) { ?>
+  if ( wp_script_is( 'html5blankscripts', 'done' ) ) { ?>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <?php }
 }

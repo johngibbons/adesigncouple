@@ -8,3 +8,15 @@
   padding: 0;
   margin: 0;
 }
+
+@mixin bp($point) {
+  @if $point == large {
+    @media (min-width: 1800px) { @content; }
+  }
+  @else if $point == desktop {
+    @media (min-width: 1024px) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: 768px)  { @content; }
+  }
+}

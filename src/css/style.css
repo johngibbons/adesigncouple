@@ -55,24 +55,37 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
-  font-size: 140%;
+  font-family: "freight-text-pro", serif;
+  font-size: 2.2rem;
   line-height: 1.5;
-  color: #444444;
-  background-color: white;
+  color: #3D3F44;
+  background-color: #fff;
+  letter-spacing: 0.01rem;
+  display: flex;
+  flex-direction: column;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+
+#content {
+  flex: 1;
 }
 
 img {
   max-width: 100%;
   vertical-align: middle;
+  width: auto;
+  height: auto;
 }
 
 a {
-  color: #444444;
+  color: #3D3F44;
   text-decoration: none;
 }
 a:focus, a:hover {
-  text-decoration: underline;
+  color: #676A73;
 }
 
 input[type="text"],
@@ -82,9 +95,13 @@ input[type="search"] {
 }
 
 ::selection {
-  background-color: #04a4cc;
-  color: white;
+  background-color: #04A4CC;
+  color: #fff;
   text-shadow: none;
+}
+
+ul {
+  list-style: none;
 }
 
 /**
@@ -119,7 +136,7 @@ input[type="search"] {
  * Gallery & images
  */
 .wp-caption {
-  background: white;
+  background: #fff;
   border: thin solid #F0F0F0;
   max-width: 95%;
   padding: 5px 5px;
@@ -138,7 +155,7 @@ input[type="search"] {
 .gallery-caption {
   margin: 0;
   padding: 0 5px 5px;
-  font-size: 140%;
+  font-size: 2.2rem;
   line-height: 1.5;
 }
 
@@ -166,20 +183,66 @@ input[type="search"] {
  */
 .wrapper {
   max-width: 1280px;
+  width: 100%;
   padding: 0 15px;
-  margin: 0 auto;
+  margin: 12.2rem auto 0;
   position: relative;
 }
 
 /**
- * partial/header
+ * partials/header
  * ---
  */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12.2rem;
+  padding: 2rem;
+  background-color: #fff;
+  transition: all 0.1s cubic-bezier(0.06, 0.42, 0.7, 0.99);
+  z-index: 2;
+}
+.header.compact {
+  height: 6.7rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #E6EBFF;
+  box-shadow: 0 0 3px 0 #E6EBFF;
+}
+.header.compact .logo {
+  max-width: 15rem;
+}
+
+.logo {
+  width: 100%;
+  max-width: 31rem;
+  display: inline-block;
+  transition: all 0.1s cubic-bezier(0.06, 0.42, 0.7, 0.99);
+}
+
 /**
  * partials/nav
  * ---
  * Menus
  */
+.nav {
+  display: block;
+  text-align: center;
+}
+.nav ul {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.32rem;
+  font-family: "adelle-sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: .2em;
+  padding: 0 2rem;
+}
+.nav li {
+  display: inline-block;
+}
+
 /**
  * partials/sidebar
  * ---
@@ -259,3 +322,87 @@ input[type="search"] {
     page-break-after: avoid;
   }
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "adelle-sans", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 6.6rem;
+}
+
+p {
+  font-family: "freight-text-pro", serif;
+  font-weight: 400;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .post .normal {
+    max-width: 70rem;
+    margin: 2em 0 2em 15%;
+  }
+}
+
+.post-featured {
+  width: 100vw;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.post-details {
+  font-family: "adelle-sans", sans-serif;
+  font-size: 1.76rem;
+}
+
+.inline-quotation {
+  margin: 2em 0 2em 15%;
+  padding-left: 1em;
+  border-left: 5px solid #676A73;
+  font-style: italic;
+}
+.inline-quotation .inline-attribution {
+  font-family: "adelle-sans", sans-serif;
+  font-weight: 100;
+  font-size: 1.32rem;
+  font-style: normal;
+}
+.inline-quotation .inline-attribution:before {
+  content: "-";
+}
+
+.block-quotation {
+  text-align: center;
+}
+.block-quotation p {
+  font-style: italic;
+  font-size: 3.19rem;
+}
+.block-quotation .block-attribution {
+  font-family: "adelle-sans", sans-serif;
+  font-weight: 100;
+  color: #676A73;
+  font-size: 1.76rem;
+}
+.block-quotation .block-attribution:before {
+  content: "-";
+}
+
+.caption p {
+  font-family: "adelle-sans", sans-serif;
+  color: #676A73;
+  font-weight: 300;
+  font-size: 1.76rem;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

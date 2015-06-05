@@ -5,9 +5,35 @@
 
 
 // Header container
-.header {}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  padding: 2rem;
+  background-color: $white;
+  transition: $transition-base;
+  z-index: 2;
+
+  &.compact {
+    height: $header-height-compact;
+    padding: 1rem 0;
+    border-bottom: $border-base;
+    box-shadow: $box-shadow-base;
+
+    .logo {
+      max-width: 15rem;
+    }
+  }
+}
 
 // Logo
-.logo {}
+.logo {
+  width: 100%;
+  max-width: 31rem; 
+  display: inline-block;
+  transition: $transition-base;
+}
 
 .logo-img {}

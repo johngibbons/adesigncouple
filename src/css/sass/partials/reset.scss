@@ -26,6 +26,17 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
+  letter-spacing: $letter-spacing-base;
+  display: flex;
+  flex-direction: column;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+
+#content {
+  flex: 1;
 }
 
 img {
@@ -33,6 +44,8 @@ img {
   max-width: 100%;
   // Omit space caused by default style, between images lines
   vertical-align: middle;
+  width: auto;
+  height: auto;
 }
 
 a {
@@ -41,7 +54,7 @@ a {
 
   &:focus,
   &:hover {
-    text-decoration: underline;
+    color: $link-color;
   }
 
   &:active {}
@@ -58,4 +71,8 @@ input[type="search"] {
   background-color: $selection-bg;
   color: $body-bg;
   text-shadow: none;
+}
+
+ul {
+  list-style: none;
 }

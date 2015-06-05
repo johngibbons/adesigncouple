@@ -5,9 +5,29 @@
  */
 
 
-.nav {}
+.nav { 
 
-.menu {}
+  display: block;
+  text-align: center;
+
+  ul {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: $font-size-base * 0.6;
+    font-family: $font-family-nav;
+    font-weight: 600;
+    letter-spacing: .2em;
+    padding: 0 2rem;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+}
+
+.menu {
+}
 
 .sub-menu {}
 
