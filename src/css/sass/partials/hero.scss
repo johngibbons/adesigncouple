@@ -1,0 +1,10 @@
+.hero {
+  height: 70vh;
+  margin: 0 (-$wrapper-padding-mobile);
+  overflow: hidden;
+  z-index: 1;
+
+  @include bp(desktop) {
+    margin: 0 (-$wrapper-padding-desktop);
+  }
+}

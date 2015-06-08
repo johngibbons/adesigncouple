@@ -5,35 +5,170 @@
 
 
 // Header container
-.header {
+
+/**
+ * partials/header
+ * ---
+ */
+
+
+// Header container
+#header-bar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  height: $header-height;
-  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  height: $header-height-mobile;
   background-color: $white;
-  transition: $transition-base;
   z-index: 2;
 
+  @include bp(desktop) {
+    height: $header-height-desktop;
+    padding: 4rem 2rem;
+  }
+
   &.compact {
-    height: $header-height-compact;
-    padding: 1rem 0;
+    transition: $transition-base;
     border-bottom: $border-base;
     box-shadow: $box-shadow-base;
 
-    .logo {
-      max-width: 15rem;
+    @include bp(desktop) {
+      height: $header-height-compact;
+      padding: 1rem 2rem;
+
+      .logo {
+        max-width: 17rem;
+      }
+    }
+
+  }
+
+  &.hidden {
+    top: -$header-height-mobile;
+
+    @include bp(desktop) {
+      top: -$header-height-compact;
+    }
+  }
+
+  .logo {
+    padding: 0.5rem 0;
+    width: 100%;
+    max-width: 15rem; 
+    display: inline-block;
+    transition: $transition-base;
+
+    @include bp(desktop) {
+      max-width: 31rem;
+      padding: 0;
+    }
+
+  }
+
+}
+
+
+// Mobile nav overlay when open
+#nav-open-overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgba(0,0,0,.7);
+  z-index: 2;
+  transition: $transition-base;
+}
+
+body.is-pushed {
+  #nav-open-overlay {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: $box-shadow-base;
+  }
+}
+
+//Mobile Navigation Toggle Button
+#nav-toggle {
+  float: left;
+  margin: 0;
+  padding: 1.3rem 1.5rem;
+  transition: $transition-base;
+  cursor: pointer;
+  user-select: none;
+  background-color: $white;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 3;
+
+  .lines {
+    //create middle line
+    @include line;
+    position: relative; 
+    bottom: 0.4rem;
+
+    /*create the upper and lower lines as pseudo-elements of the middle line*/
+    &:before, &:after {
+      @include line;
+      position: absolute;
+      left:0;
+      content: '';
+      transform-origin: $nav-toggle-btn-size/14 center;
+    }
+
+    &:before {
+      top: 7px;
+    }
+
+    &:after {
+      top: -7px;
+    }
+
+  }
+
+  &:hover {
+    opacity: 1;
+
+    .lines {
+      &:before {
+        top: 9px;
+      }
+
+      &:after {
+        top: -9px;
+      }
+    }
+  }
+
+  &.close {
+
+    @include bp(desktop) {
+      left: -2rem;
+    }
+
+    .lines {
+      /*hide the middle line*/
+      background: transparent;
+
+      /*overlay the lines by setting both their top values to 0*/
+      &:before, &:after {
+        transform-origin: 50% 50%;
+        top:0;
+        width: $nav-toggle-btn-size;
+      }
+
+      // rotate the lines to form the x shape
+      &:before {
+        transform: rotate3d(0,0,1,45deg); 
+      }
+      &:after {
+        transform: rotate3d(0,0,1,-45deg); 
+      }
     }
   }
 }
 
-// Logo
-.logo {
-  width: 100%;
-  max-width: 31rem; 
-  display: inline-block;
-  transition: $transition-base;
-}
-
-.logo-img {}

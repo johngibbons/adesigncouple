@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
   <main role="main">
+    <section class="hero">
+      <div id="map-canvas" class="parallax">
+      </div>
+    </section>
     <!-- section -->
-    <section>
-
-      <h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
+    <section class="timeline">
 
       <?php get_template_part('loop'); ?>
 
@@ -13,7 +15,5 @@
     </section>
     <!-- /section -->
   </main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

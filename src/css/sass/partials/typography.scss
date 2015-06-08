@@ -9,7 +9,11 @@ h5 {
 }
 
 h1 {
-  font-size: $font-size-base * 3;
+  font-size: $font-size-base * 2;
+
+  @include bp(desktop) {
+    font-size: $font-size-base * 3;
+  }
 }
 
 p {
@@ -17,4 +21,20 @@ p {
   font-weight: $font-weight-base;
 }
 
+.meta {
+  font-family: $font-family-meta;
+  font-size: $font-size-base * 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 
+  p {
+    font-family: $font-family-meta;
+    font-size: $font-size-base * 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.excerpt {
+  font-style: italic;
+}

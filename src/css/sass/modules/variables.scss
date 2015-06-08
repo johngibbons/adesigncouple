@@ -29,10 +29,11 @@ $font-family-nav: $adelle-sans;
 /**
  * Colors
  */
-$light-gray: #E6EBFF;
+$light-gray: #F7F9FF;
 $medium-gray: #676A73;
 $dark-gray: #3D3F44;
 $white: #fff;
+$black: #000;
 
 $text-color: $dark-gray;
 $link-color: $medium-gray;
@@ -45,8 +46,8 @@ $color-secondary: $medium-gray;
  * Grid
  */
 
-$wrapper-width: 1280px;
-$header-height: 12.2rem;
+$header-height-desktop: 16.2rem;
+$header-height-mobile:  5rem;
 $header-height-compact: 6.7rem;
 
 
@@ -57,7 +58,16 @@ $margin-vertical-base: 5px;
 $margin-horizontal-large: 15px;
 $margin-vertical-large: 15px;
 
+$wrapper-padding-mobile: 1.5rem;
+$wrapper-padding-desktop: 20rem;
+
 
 $border-base: 1px solid $light-gray;
-$transition-base: all 0.1s cubic-bezier(.06,.42,.7,.99);
+$border-base-medium: 1px solid darken($light-gray, 5%);
+$transition-base: all 0.3s cubic-bezier(.06,.42,.7,.99);
 $box-shadow-base: 0 0 3px 0 $light-gray;
+
+$post-margin: 2em 0 2em 15%;
+
+$nav-toggle-btn-size : 2rem;
+$mobile-nav-width: 30rem;

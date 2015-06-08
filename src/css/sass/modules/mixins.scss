@@ -20,3 +20,12 @@
     @media (min-width: 768px)  { @content; }
   }
 }
+
+// mobile nav button
+@mixin line {
+  display: inline-block;
+  width: $nav-toggle-btn-size;
+  height: $nav-toggle-btn-size/6;
+  background: $dark-gray;
+  transition: 0.1s;
+}

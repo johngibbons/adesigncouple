@@ -21,14 +21,14 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
   letter-spacing: $letter-spacing-base;
-  display: flex;
-  flex-direction: column;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

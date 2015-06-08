@@ -4,26 +4,80 @@
  * Menus
  */
 
+nav {
+  li {
+    font-family: $font-family-nav;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
 
-.nav { 
+#nav-mobile {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: $mobile-nav-width;
+  background-color: $light-gray;
+  height: 100%;
+  z-index: 0;
 
-  display: block;
-  text-align: center;
+  #nav-contents {
+    position: absolute;
+    width: 100%;
+  }
+
+  #nav-logo {
+    display: inline-block;
+    padding: 2rem 0 0 4rem;
+    width: 70%;
+  }
+
+  .search {
+    padding: 4rem;
+    width: 80%;
+  }
 
   ul {
-    display: inline-block;
-    text-transform: uppercase;
-    font-size: $font-size-base * 0.6;
-    font-family: $font-family-nav;
-    font-weight: 600;
-    letter-spacing: .2em;
-    padding: 0 2rem;
+    padding: 0;
+    margin: 0;
+    border-top: $border-base-medium;
   }
 
   li {
-    display: inline-block;
-  }
+    border-bottom: $border-base-medium;
 
+    a {
+      position: relative;
+      color: $dark-gray;
+      padding: 2rem 4rem;
+      width: 100%;
+      height: 100%;
+      display: block;
+      left: 0;
+      transition: all 0.3s ease;
+      font-size: $font-size-base * 0.6;
+      font-weight: 600;
+
+      &:hover {
+        color: $white;
+        background-color: $dark-gray;
+        left: 2px;
+      }
+
+      &:after {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+#nav-social {
+  padding: 2em 0 2em 4em;
+  .fa {
+    display: inline-block;
+    padding-right: 2em;
+  }
 }
 
 .menu {

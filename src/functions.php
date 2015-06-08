@@ -63,35 +63,11 @@ if (function_exists('add_theme_support'))
 \*------------------------------------*/
 
 // HTML5 Blank navigation
-function header_left_nav()
+function html5blank_nav()
 {
     wp_nav_menu(
     array(
-        'theme_location'  => 'header-menu-left',
-        'menu'            => '',
-        'container'       => 'div',
-        'container_class' => 'menu-{menu slug}-container',
-        'container_id'    => '',
-        'menu_class'      => 'menu',
-        'menu_id'         => '',
-        'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
-        'before'          => '',
-        'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
-        'items_wrap'      => '<ul>%3$s</ul>',
-        'depth'           => 0,
-        'walker'          => ''
-        )
-    );
-}
-
-function header_right_nav()
-{
-    wp_nav_menu(
-    array(
-        'theme_location'  => 'header-menu-right',
+        'theme_location'  => 'header-menu',
         'menu'            => '',
         'container'       => 'div',
         'container_class' => 'menu-{menu slug}-container',
@@ -129,6 +105,9 @@ function html5blank_header_scripts()
             // Typekit
             wp_register_script("typekit", "//use.typekit.net/zoi7fjr.js", array(), '1.0');
 
+            // Google Maps
+            wp_register_script("google_maps", "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBOYqQMuZ2YyedSdbe8S62Ups4BBI9NK0", array(), '1.0');
+
             // Custom scripts
             wp_register_script(
                 'html5blankscripts',
@@ -137,7 +116,8 @@ function html5blank_header_scripts()
                     'conditionizr',
                     'modernizr',
                     'jquery',
-                    "typekit"
+                    "typekit",
+                    "google_maps",
                   ),
                 '1.0.0');
 
@@ -188,9 +168,8 @@ function html5blank_styles()
 function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu-left' => __('Header Menu Left', 'html5blank'), // Main Navigation
+        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'header-menu-right' => __('Header Menu Right', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -379,6 +358,11 @@ function html5blankcomments($comment, $args, $depth)
     <?php if ( 'div' != $args['style'] ) : ?>
     <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
     <?php endif; ?>
+    <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
+        <?php
+            printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
+        ?>
+    </div>
     <div class="comment-author vcard">
     <?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size'] ); ?>
     <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
@@ -388,11 +372,6 @@ function html5blankcomments($comment, $args, $depth)
     <br />
 <?php endif; ?>
 
-    <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-        <?php
-            printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
-        ?>
-    </div>
 
     <?php comment_text() ?>
 

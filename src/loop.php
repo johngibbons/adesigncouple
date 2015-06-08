@@ -1,36 +1,49 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
+
   <!-- article -->
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <!-- Get the Markers for the Google Map -->
+    <?php $location = get_field("location"); ?>
+    <?php if ( !empty($location) ): ?>
+      <div class="marker" data-lat="<?php echo $location["lat"]; ?>" data-lng="<?php echo $location["lng"]; ?>" >
+        <a href="<?php the_permalink(); ?>">
+          <h3 class="marker-title"><?php the_title(); ?></h3>
+          <div class="date">
+            <time datetime="<?php the_time("Y-m-d"); ?>">
+              <?php the_date(); ?>
+            </time>
+          </div>
+          <div class="marker-thumb">
+            <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+                <?php the_post_thumbnail("small"); // Declare pixel size you need inside the array ?>
+            <?php endif; ?>
+          </div>
+        </a>
+      </div>
+    <?php endif; ?>
+      <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="timeline-post">
+    <div class="timeline-entry meta">
+      <!-- post title -->
+      <h2>
+        <?php the_title(); ?>
+      </h2>
+      <!-- /post title -->
+      <div class="timeline-dot">
+      </div>
+      <span class="date">
+        <time datetime="<?php the_time("Y-m-d"); ?>">
+          <?php the_time("F j, Y"); ?>
+        </time>
+      </span>
+    </div>
 
     <!-- post thumbnail -->
     <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
-      <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
         <?php the_post_thumbnail("large"); // Declare pixel size you need inside the array ?>
-      </a>
     <?php endif; ?>
     <!-- /post thumbnail -->
-
-    <!-- post title -->
-    <h2>
-      <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-    </h2>
-    <!-- /post title -->
-
-    <!-- post details -->
-    <span class="date">
-      <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
-        <?php the_date(); ?> <?php the_time(); ?>
-      </time>
-    </span>
-    <span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-    <span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-    <!-- /post details -->
-
-    <?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-
-    <?php edit_post_link(); ?>
-
+  </a>
   </article>
   <!-- /article -->
 
