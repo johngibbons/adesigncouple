@@ -12,3 +12,12 @@ button, input[type="submit"], .btn {
   font-weight: 600;
   padding: 0.5em 1em;
 }
+
+input[type="search"] {
+  padding: 0.5em 1em;
+  outline: none;
+
+  &:focus {
+    border: 1px solid $dark-gray;
+  }
+}

@@ -65,6 +65,7 @@ $wrapper-padding-desktop: 20rem;
 $border-base: 1px solid $light-gray;
 $border-base-medium: 1px solid darken($light-gray, 5%);
 $transition-base: all 0.3s cubic-bezier(.06,.42,.7,.99);
+$transition-base-long: all 0.5s cubic-bezier(.06, 0.42, 0.7, 0.99);
 $box-shadow-base: 0 0 3px 0 $light-gray;
 
 $post-margin: 2em 0 2em 15%;

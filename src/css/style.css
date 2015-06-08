@@ -422,12 +422,18 @@ nav li {
 }
 #nav-mobile #nav-logo {
   display: inline-block;
-  padding: 2rem 0 0 4rem;
+  padding: 4rem 0 4rem 4rem;
   width: 70%;
 }
 #nav-mobile .search {
-  padding: 4rem;
+  padding: 4rem 0 0 4rem;
   width: 80%;
+  font-family: "adelle-sans", sans-serif;
+  font-size: 1.32rem;
+}
+#nav-mobile .search input {
+  width: 100%;
+  margin-right: 2rem;
 }
 #nav-mobile ul {
   padding: 0;
@@ -603,6 +609,14 @@ button, input[type="submit"], .btn {
   font-size: 1.32rem;
   font-weight: 600;
   padding: 0.5em 1em;
+}
+
+input[type="search"] {
+  padding: 0.5em 1em;
+  outline: none;
+}
+input[type="search"]:focus {
+  border: 1px solid #3D3F44;
 }
 
 .hero {
@@ -867,7 +881,7 @@ button, input[type="submit"], .btn {
 }
 .timeline .wp-post-image {
   filter: grayscale(100%);
-  transition: all 0.3s cubic-bezier(0.06, 0.42, 0.7, 0.99);
+  transition: all 0.5s cubic-bezier(0.06, 0.42, 0.7, 0.99);
 }
 .timeline .details {
   font-size: 1.32rem;
